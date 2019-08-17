@@ -1,0 +1,60 @@
+<! doctype html>
+< html  lang = " {{site.lang | default: " en-US " }} " >
+  < hlava >
+    < meta  charset = " utf-8 " >
+    < meta  http-equiv = " X-UA-Compatible "  content = " IE = edge " >
+
+{% seo%}
+    < link  rel = " stylesheet "  href = " {{'/assets/css/style.css?v=' | append: site.github.build_revision | relat_url}} " " >
+    < script  src = " https://code.jquery.com/jquery-1.12.4.min.js "  integrity = " sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ + Xp8a4MxAQ = "  crossorigin = " anonymous " > </ script >
+    < script  src = " {{'/assets/js/respond.js' | relat_url}} " > </ script >
+    <! - [If lt IE 9]>
+      <script src = "// html5shiv.googlecode.com/svn/trunk/html5.js"> </script>
+    <! [endif] ->
+    <! - [ak je IE 8]>
+    <link rel = "stylesheet" href = "{{'/assets/css/ie.css' | relat_url}}" ">
+    <! [endif] ->
+    < meta  name = " viewport "  content = " width = šírka zariadenia, počiatočná mierka = 1, škálovateľná používateľom = nie " >
+
+  </ hlava >
+  < telo >
+      < div  id = " header " >
+        < nav >
+          < Li  class = " vidlica " > < href = " {{site.github.repository_url}} " > pohľad na GitHub </ > </ ak > 
+          {% if site.show_downloads%}
+            < Li  class = " stiahnutie " > < href = " {{site.github.zip_url}} " > ZIP </ > </ ak > 
+            < Li  class = " stiahnutie " > < href = " {{site.github.tar_url}} " > TAR </ > </ ak > 
+            < li  class = " title " > STIAHNUŤ </ li >
+          {% koniec Ak %}
+        </ nav >
+      </ div > <! - hlavička konca ->
+
+    < div  class = " wrapper " >
+
+      < section >
+        < div  id = " title " >
+          < h1 > {{site.title | Predvolená hodnota: site.github.repository_name}} </ h1 >
+          < p > {{site.description | predvolená hodnota: site.github.project_tagline}} </ p >
+          < hr >
+          < Span  class = " voľné kredity " > Projekt udržiava < a  href = " {{site.github.owner_url}} " > {{site.github.owner_name}} </ > </ span >
+          < span  class = " kredity right " > Hostené na stránkach GitHub & mdash ; Téma o < a  href = " https://twitter.com/mattgraham " > mattgraham </ > </ span >
+        </ div >
+
+        {{content}}
+
+      </ section >
+
+    </ div >
+
+    {% if site.google_analytics%}
+      < skript >
+        ( funkcia ( i , s , o , g , r , a , m ) {i [ ' GoogleAnalyticsObject ' ] = r; i [r] = i [r] || funkcia () {
+        (i [r]. q = i [r]. q || []). push ( argumenty )}, i [r]. l = 1 * nový  dátum (); a = s . createElement (o),
+        m = s . getElementsByTagName (o) [ 0 ]; a . async = 1 ; a . src = g; m . parentNode . insertBefore (a, m)
+        }) ( okno , dokument , „ skript “ , „ //www.google-analytics.com/analytics.js “ , „ ga “ );
+        ga ( ' create ' , ' {{site.google_analytics}} ' , ' auto ' );
+        ga ( ' send ' , ' pageview ' );
+      </ script >
+    {% koniec Ak %}
+  </ telo >
+</ html >
